@@ -1,0 +1,22 @@
+{
+  "name": "nci_blockchain",
+  "version": "1.0.0",
+  "description": "blockchain project",
+  "main": "contract.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OganBelema/nci_blockchain.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OganBelema/nci_blockchain/issues"
+  },
+  "homepage": "https://github.com/OganBelema/nci_blockchain#readme",
+  "dependencies": {
+    "web3": "^1.6.0"
+  }
+}
