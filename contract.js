@@ -3,7 +3,7 @@ const Web3 = require("web3")
 //instantiate web3
 const rpcUrl = "https://ropsten.infura.io/v3/"
 
-const web3 = Web3(rpcUrl)
+const web3 = new Web3(rpcUrl)
 
 //get the ABI interface for my contract
 const abi = [
@@ -267,3 +267,16 @@ const contractAddress = "0x2C3703B854a622CFBAa23eE59D556A74F16B7C08"
 const ownerMetamaskAccount = "0xe704258B93Bf58de44Fa951bd52B724dC2bf6b79"
 
 const contract = new web3.eth.Contract(abi, contractAddress)
+
+//run some methods in the contract using javascript
+
+const getTotalSupply = async() => {
+    let totalSupply = await contract.methods.totalSupply().call()
+    return `Total supply is: ${totalSupply}`
+}
+
+const returnAllValues = async() => {
+    console.log(await getTotalSupply())
+}
+
+returnAllValues()
