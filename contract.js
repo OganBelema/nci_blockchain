@@ -280,9 +280,15 @@ const getSymbol = async() => {
     return `Symbol is: ${symbol}`
 }
 
+const getBalanceOfOwner = async(owner) => {
+	let ownerBalance = await contract.methods.balanceOf(owner).call()
+	return `Balance of owner is ${ownerBalance}`
+}
+
 const returnAllValues = async() => {
     console.log(await getTotalSupply())
     console.log(await getSymbol())
+	console.log(await getBalanceOfOwner(ownerMetamaskAccount))
 }
 
 returnAllValues()
