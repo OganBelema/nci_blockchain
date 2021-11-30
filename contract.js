@@ -1,8 +1,15 @@
 const Web3 = require("web3")
 
-//instantiate web3
-const rpcUrl = "https://ropsten.infura.io/v3/"
+//this sets up my .env file
+require('dotenv').config()
 
+//loading environment variables
+infuraToken = process.env.INFURA_TOKEN
+
+//setup a Remote Procedure Call(RPC) to connect to an ethereum node
+const rpcUrl = `https://ropsten.infura.io/v3/${infuraToken}`
+
+//instantiate web3
 const web3 = new Web3(rpcUrl)
 
 //get the ABI interface for my contract
@@ -262,10 +269,13 @@ const abi = [
 	}
 ]
 
-//get my contract address
+//specify my contract address
 const contractAddress = "0x760de58daaFa3E473699291Ea5E863158027C7E2"
+
+//specify my owner address
 const ownerMetamaskAccount = "0xe704258B93Bf58de44Fa951bd52B724dC2bf6b79"
 
+//instantiate a contract object
 const contract = new web3.eth.Contract(abi, contractAddress)
 
 //run some methods in the contract using javascript

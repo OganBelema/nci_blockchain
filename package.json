@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/OganBelema/nci_blockchain#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "web3": "^1.6.0"
   }
 }
