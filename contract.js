@@ -5,6 +5,8 @@ require('dotenv').config()
 
 //loading environment variables
 infuraToken = process.env.INFURA_TOKEN
+contractAddress = process.env.CONTRACT_ADDRESS
+ownerAddress = process.env.OWNER_METAMASK_ADDRESS
 
 //setup a Remote Procedure Call(RPC) to connect to an ethereum node
 const rpcUrl = `https://ropsten.infura.io/v3/${infuraToken}`
@@ -269,11 +271,6 @@ const abi = [
 	}
 ]
 
-//specify my contract address
-const contractAddress = "0x760de58daaFa3E473699291Ea5E863158027C7E2"
-
-//specify my owner address
-const ownerMetamaskAccount = "0xe704258B93Bf58de44Fa951bd52B724dC2bf6b79"
 
 //instantiate a contract object
 const contract = new web3.eth.Contract(abi, contractAddress)
@@ -309,7 +306,7 @@ const returnAllValues = async() => {
 	console.log(await getName())
     console.log(await getTotalSupply())
     console.log(await getSymbol())
-	console.log(await getBalanceOfOwner(ownerMetamaskAccount))
+	console.log(await getBalanceOfOwner(ownerAddress))
 	console.log(await getTokenDecimals())
 }
 
