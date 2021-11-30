@@ -263,12 +263,17 @@ const abi = [
 ]
 
 //get my contract address
-const contractAddress = "0x2C3703B854a622CFBAa23eE59D556A74F16B7C08"
+const contractAddress = "0x760de58daaFa3E473699291Ea5E863158027C7E2"
 const ownerMetamaskAccount = "0xe704258B93Bf58de44Fa951bd52B724dC2bf6b79"
 
 const contract = new web3.eth.Contract(abi, contractAddress)
 
 //run some methods in the contract using javascript
+
+const getName = async() => {
+	let name = await contract.methods.name().call()
+	return `Name: ${name}`
+}
 
 const getTotalSupply = async() => {
     let totalSupply = await contract.methods.totalSupply().call()
@@ -291,6 +296,7 @@ const getTokenDecimals = async() => {
 }
 
 const returnAllValues = async() => {
+	console.log(await getName())
     console.log(await getTotalSupply())
     console.log(await getSymbol())
 	console.log(await getBalanceOfOwner(ownerMetamaskAccount))
