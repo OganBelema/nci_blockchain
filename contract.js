@@ -289,7 +289,7 @@ const getTotalSupply = async() => {
 
 const getSymbol = async() => {
     let symbol = await contract.methods.symbol().call()
-    return `Symbol is: ${symbol}`
+    return symbol
 }
 
 const getBalanceOfAccount = async(owner) => {
