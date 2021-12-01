@@ -36,6 +36,12 @@ const distribute = async() =>  {
     //get five percent of owner balance
     let fivePercent = ownerBalance.div(20)
     console.log(`Five percent of owner balance is ${fivePercent}`)
+
+    //workout how many addresses in file N
+    let numberOfAddresses = distributionAddresses.length
+    console.log(`Number of addresses in file is ${numberOfAddresses}`)
+
+    
 }
 
 distribute()
