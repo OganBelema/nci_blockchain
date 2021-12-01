@@ -310,4 +310,5 @@ const returnAllValues = async() => {
 	console.log(await getTokenDecimals())
 }
 
-returnAllValues()
+//returnAllValues()
+module.exports = { getSymbol, getTokenDecimals, getBalanceOfOwner, getName }
