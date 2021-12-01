@@ -1,10 +1,4 @@
 //create a method that will be called by webserver
-
-//in this method:
-//read the accounts.txt file
-//put the accounts into an array
-//get the totalsupply for the token owner 
-//calculate 5% of the totalSupply
 //loop N times, and execute N transactions transferring the token 
 
 const fs = require("fs")
@@ -33,6 +27,9 @@ const distribute = async() =>  {
     let ownerBalance = BigNumber(await contract.getBalanceOfAccount(ownerAddress))
     console.log(`Owner balance is ${ownerBalance}`)
 
+    //get the symbol of the token
+    let tokenSymbol = await contract.getSymbol()
+
     //get five percent of owner balance
     let fivePercent = ownerBalance.div(20)
     console.log(`Five percent of owner balance is ${fivePercent}`)
@@ -41,8 +38,16 @@ const distribute = async() =>  {
     let numberOfAddresses = distributionAddresses.length
     console.log(`Number of addresses in file is ${numberOfAddresses}`)
 
-    
+    //divide the five percent by N to get the distribution amount
+    let distributionAmount = fivePercent.div(numberOfAddresses)
+    console.log(`distribution amount per address is ${distributionAmount}`)
+
+    for(i = 0; i < numberOfAddresses; i++) {
+        console.log(`About to distribute ${distributionAmount} ${tokenSymbol} tokens to ${distributionAddresses[i]}`)
+        //execute a transfer to distribution address 
+        await method.transferToken(distributionAddresses[i], distributionAmount)
+    }
+
 }
 
-distribute()
-//module.exports = { distribute }
+module.exports = { distribute }
