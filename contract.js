@@ -292,7 +292,7 @@ const getSymbol = async() => {
     return `Symbol is: ${symbol}`
 }
 
-const getBalanceOfOwner = async(owner) => {
+const getBalanceOfAccount = async(owner) => {
 	let ownerBalance = await contract.methods.balanceOf(owner).call()
 	return ownerBalance
 }
@@ -306,9 +306,9 @@ const returnAllValues = async() => {
 	console.log(await getName())
     console.log(await getTotalSupply())
     console.log(await getSymbol())
-	console.log(await getBalanceOfOwner(ownerAddress))
+	console.log(await getBalanceOfAccount(ownerAddress))
 	console.log(await getTokenDecimals())
 }
 
 //returnAllValues()
-module.exports = { getSymbol, getTokenDecimals, getBalanceOfOwner, getName }
+module.exports = { getSymbol, getTokenDecimals, getBalanceOfAccount, getName }
