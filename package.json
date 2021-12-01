@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/OganBelema/nci_blockchain#readme",
   "dependencies": {
+    "big-number": "^2.0.0",
     "dotenv": "^10.0.0",
     "ethereumjs-tx": "^2.1.2",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "web3": "^1.6.0"
   }
 }
