@@ -19,6 +19,7 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "ethereumjs-tx": "^2.1.2",
+    "express": "^4.17.1",
     "web3": "^1.6.0"
   }
 }
