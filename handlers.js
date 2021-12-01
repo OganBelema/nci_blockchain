@@ -1,5 +1,3 @@
- //use web server to distribute token
-
 //add a docker container
 
 const contract = require("./contract.js")
@@ -7,6 +5,8 @@ const contract = require("./contract.js")
 const method = require("./method.js")
 
 const express = require('express')
+
+const distribute = require('./distribute.js')
 
 //create a web server
 const app = express()
@@ -25,6 +25,11 @@ app.post('/transfer', async(req, res) => {
     let amount = req.body.amount
 
     res.send(await method.transferToken(accountTo, amount))
+})
+
+ //use web server to distribute token
+ app.get('/distribute', async(req, res) => {
+   res.send(await distribute.distribute())
 })
 
 app.listen(port, () => console.log(`Listening on port: ${port}`))
