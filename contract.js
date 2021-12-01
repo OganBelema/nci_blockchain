@@ -294,7 +294,7 @@ const getSymbol = async() => {
 
 const getBalanceOfOwner = async(owner) => {
 	let ownerBalance = await contract.methods.balanceOf(owner).call()
-	return `Balance of owner is ${ownerBalance}`
+	return ownerBalance
 }
 
 const getTokenDecimals = async() => {
