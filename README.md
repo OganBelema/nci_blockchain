@@ -17,6 +17,6 @@ Requires web3, metamask and infura
 
 ```curl http://localhost:8090/distribute```
 
-### Alternatively you can execute application as it is using
+### Alternatively you can execute application to perform distribution as it is using
 
 ```docker-compose up```
