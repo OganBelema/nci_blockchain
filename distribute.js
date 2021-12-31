@@ -50,4 +50,5 @@ const distribute = async() =>  {
 
 }
 
-module.exports = { distribute }
+distribute()
+//module.exports = { distribute }
