@@ -1,4 +1,4 @@
-FROM node:14.18.0
+FROM node:12
 
 WORKDIR /usr/src/app
 
@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD {"node", "distribute.js"}
+CMD ["node", "distribute.js"]
